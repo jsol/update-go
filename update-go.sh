@@ -2,7 +2,7 @@
 TMPFILE="/tmp/new-golang.tar.gz"
 SHATMPFILE="/tmp/new-golang.tar.gz.sha256"
 
-DOWNLOADS=$(curl -s "https://golang.org/dl/?mode=json" | jq 'map(select(.stable==true)) | first')
+DOWNLOADS=$(curl -s "https://go.dev/dl/?mode=json" | jq 'map(select(.stable==true)) | first')
 
 OS="linux"
 ARCH=$(dpkg --print-architecture)
