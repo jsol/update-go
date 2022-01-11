@@ -10,6 +10,11 @@ ARCH=$(dpkg --print-architecture)
 VERSION=$(echo $DOWNLOADS | jq -r .version)
 CURRENT=$(go version | cut -d ' ' -f 3)
 
+if [ -z "$VERSION" ]; then
+  echo "Could not fetch latest golang version."
+  exit 1
+fi
+
 echo "OS: $OS, Arch: $ARCH"
 echo "Current version:  $CURRENT"
 echo "Latest available: $VERSION"
